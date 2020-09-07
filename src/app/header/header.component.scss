@@ -12,7 +12,7 @@ header {
     font-size: 60px;
     line-height: 60px;
     margin: 0;
-    padding: 100px 0;
+    padding: 100px 10px;
     font-family: $secondary-font;
     color: $black;
     box-sizing: border-box;
@@ -20,9 +20,9 @@ header {
 
   img {
     box-sizing: border-box;
-    padding: 50px 0;
-    height: 200px;
-    width: auto;
+    padding: 10px;
+    height: auto;
+    width: 20%;
   }
 }
 
@@ -48,18 +48,16 @@ header {
 
 @media only screen and (max-width: $md) {
   header {
-    @include flex(row, flex-start, flex-start);
     h1 {
       font-size: 30px;
       line-height: 30px;
       padding: 30px;
-      width: 70%;
     }
 
     img {
       padding: 15px;
       height: auto;
-      width: 30%;
+      width: 100px;
     }
   }
 
@@ -77,11 +75,15 @@ header {
 
 @media only screen and (max-width: $sm) {
   header {
+    @include flex(row wrap, flex-end, flex-start);
     h1 {
       padding: 0;
+      width: 100%;
     }
     img {
-      padding: 0;
+      float: right;
+      padding: 25px 0;
+      width: 100px;
     }
   }
 }
