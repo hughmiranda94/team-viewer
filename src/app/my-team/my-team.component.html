@@ -1,0 +1,51 @@
+<div class="my-team" *ngIf="!emptyTeam && !fetchingTeam">
+    <app-header
+    [mainTitle] = "'My team'"
+    [subTitle] = "'PROJECT: ' + team.teamName"
+    [accentColor] = "'#ecb9b9'"
+    [headerImg] = "'assets/team.svg'"
+    [description] = "teamDescription"
+    ></app-header>
+    <p class="project-id"><span class="bold">Project ID:</span> {{teamId}}</p>
+  <h2>TEAM MEMBERS</h2>
+  <div class="team-container">
+    <div *ngFor="let member of members">
+        <app-member-card [member]="member"></app-member-card>
+    </div>
+  </div>
+  <button class="share-button" id="share-button" (click)="shareTeam()">Get Shareable Link</button>
+  <p class="copy-success" [ngClass]="{'display': copySuccess}">Link copied to clipboard</p>
+  <div class="search-component">
+      <p class="guide-msg">Do you want to search another team? Find it by its id here:</p>
+      <label>
+        Project ID<br>
+        <input class="search-team" type="search" [formControl]="searchTeamInput" (keypress)="onEnter($event)">
+        <button class="search-icon" (click)="searchTeam()"><img src ="assets/search.svg"></button>
+      </label>
+    </div>
+</div>
+
+<div class="my-team" *ngIf="emptyTeam && !fetchingTeam">
+    <app-header
+    [mainTitle] = "'Search my team'"
+    [subTitle] = "'For my project'"
+    [accentColor] = "'#ecb9b9'"
+    [headerImg] = "'assets/team.svg'"
+    ></app-header>
+    <div class="search-component">
+      <p class="guide-msg" *ngIf="teamId">Sorry, we didn't find any team with the id
+        <span class="bold">"{{teamId}}"</span> on our records.<br>
+        Try to search again:</p>
+      <p class="guide-msg" *ngIf="!teamId">Do you have a team already? Find it by its id here:</p>
+      <label>
+        Project ID<br>
+        <input class="search-team" type="search" [formControl]="searchTeamInput" (keypress)="onEnter($event)">
+        <button class="search-icon" (click)="searchTeam()"><img src ="assets/search.svg"></button>
+      </label>
+    </div>
+    <div class="search-component">
+      <p class="guide-msg" >No team yet? Go now and assamble a new team for a project!</p>
+      <button class="make-button" routerLink = "/assamble-team">Go to Assamble Team</button>
+    </div>
+</div>
+

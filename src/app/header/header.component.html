@@ -1,0 +1,8 @@
+<header>
+  <h1>{{mainTitle | uppercase}}<br><span [ngStyle]="{'color': accentColor}">{{subTitle | uppercase}}</span></h1>
+  <img src="{{headerImg}}">
+</header>
+<div *ngIf="description" class="description">
+    <p class="description-label">{{ description.label | uppercase }}</p>
+    <p class="description-text">{{ description.text }}</p>
+</div>

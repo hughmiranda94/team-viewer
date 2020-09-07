@@ -1,0 +1,25 @@
+<div class="nav-menu" [ngClass]="{'display': navToggle}">
+  <div class="nav-toggle" (click)="toggleNavDisplay()">
+    <div id="icon" [ngClass]="{'icon--cross': navToggle}">
+      <div id="bar-1" class="bar"></div>
+      <div id="bar-2" class="bar"></div>
+      <div id="bar-3" class="bar"></div>
+    </div>
+  </div>
+  <ul [ngClass]="{'display': navToggle}">
+    <li>
+      <a routerLink="/assamble-team" (click)="toggleNavDisplay()" [ngClass]="{'hovering': hovering}"
+      (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">ASSAMBLE TEAM</a>
+    </li>
+    <li>
+      <a routerLink="/my-team" (click)="toggleNavDisplay()" [ngClass]="{'hovering': hovering}"
+      (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+      {{teamIdCookie ? 'MY' : 'SEARCH'}} TEAM</a>
+    </li>
+    <li>
+      <a routerLink="/roster" (click)="toggleNavDisplay()" [ngClass]="{'hovering': hovering}"
+      (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">ROSTER</a>
+    </li>
+  </ul>
+</div>
+

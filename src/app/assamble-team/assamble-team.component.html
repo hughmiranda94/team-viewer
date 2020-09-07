@@ -1,0 +1,44 @@
+<div class="assamble-team">
+  <app-header
+  [mainTitle] = "'Assamble the dream team'"
+  [subTitle] = "'For your project'"
+  [accentColor] = "'#bdb9ec'"
+  [headerImg] = "'assets/puzzle.svg'"
+  [description] = "assambleDescription"
+  ></app-header>
+  <form [formGroup]="projectForm" class="project-form" (ngSubmit)="onSubmit()">
+    <section class="project">
+      <div class="title"><h2>YOUR PROJECT</h2></div>
+      <div class="info">
+        <p>First, we'd love to get to know your project.
+          In order to understand your requirements better and deliver the best possible service, please tell us more about it.</p>
+        <label>Name<br>
+          <input id="project-name" formControlName="projectName" required>
+        </label>
+        <br>
+        <label>Description<br>
+          <textarea id="project-description" formControlName="projectDescription" required></textarea>
+        </label>
+      </div>
+    </section>
+    <section class="roster">
+    <div class="roster-header">
+      <div class="title"><h2>OUR ROSTER</h2></div>
+      <div class="info">
+        <p class="roster-description">All members of our roster are great high-performance professionals ready to help you bring your ideas to life,
+          but we know that some specific profiles might be a better match for your project. Check out their profiles and
+          choose the ones that are a better fit to become members of your team.</p>
+      </div>
+    </div>
+    <p class="select-team">Select your team</p>
+    <div class="roster-cards">
+      <app-member-card *ngFor="let member of roster" [member]="member" [teamMakerCard]="true" [isSelected$]="isSelected$" (memberSelected)="selectMember($event)"></app-member-card>
+    </div>
+    </section>
+    <button class="assamble-button" type="submit"
+    [disabled]="!isFormValid()"
+    [ngClass]="{'disabled': !isFormValid()}">Assamble Team</button>
+    <p class="form-invalid-msg" *ngIf="!isFormValid()">In order to assamble a team,
+      you must fill the project name, project description and choose at least one member.</p>
+  </form>
+</div>

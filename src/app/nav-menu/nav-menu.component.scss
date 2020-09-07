@@ -1,0 +1,125 @@
+@import '../styles/constants';
+
+.nav-menu {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  box-sizing: border-box;
+  transition: $transition;
+  padding: $main-padding-lg;
+  pointer-events: none;
+  z-index: 10;
+
+  &.display {
+    background-color: $purple;
+    pointer-events: all;
+
+    #icon .bar {
+      background-color: $white;
+    }
+  }
+}
+
+#icon {
+  .bar {
+    top: 0;
+    right: 0;
+    background-color: $black;
+    width: 25px;
+    height: 3px;
+    margin: 3px 0;
+    transition: $transition;
+  }
+
+  &.icon--cross {
+    #bar-1 {
+      width: 12.5px;
+      transform: rotate(-45deg) translate(6px,9px);
+    }
+
+    #bar-2 {
+      transform: rotate(45deg);
+    }
+
+    #bar-3 {
+      width: 12.5px;
+      transform: rotate(-45deg) translateX(1px);
+    }
+  }
+}
+
+.nav-toggle {
+  pointer-events: all;
+  cursor: pointer;
+  position: fixed;
+  left: 40px;
+  top: 40px;
+  margin: 10px;
+  z-index: 2;
+}
+
+ul {
+  width: 100%;
+  list-style: none;
+  filter: opacity(0);
+  transition: $transition;
+
+  &.display {
+    filter: opacity(1);
+  }
+}
+
+li {
+  width: 100%;
+  text-align: left;
+  font-size: 70px;
+  margin: 0;
+  font-family: $secondary-font;
+  box-sizing: border-box;
+
+  a {
+    color: $white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: $transition;
+
+    &.hovering {
+      opacity: 0.3;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $md) {
+  .nav-menu {
+    padding: $main-padding-md
+  }
+
+  .nav-toggle {
+    left: 20px;
+    top: 20px;
+  }
+
+  li {
+    font-size: 50px;
+  }
+}
+
+@media only screen and (max-width: $sm) {
+  .nav-menu {
+    padding: $main-padding-sm
+  }
+
+  .nav-toggle {
+    left: 20px;
+    top: 20px;
+  }
+
+  li {
+    margin-bottom: 10px;
+    font-size: 35px;
+  }
+}

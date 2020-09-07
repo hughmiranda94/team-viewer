@@ -1,0 +1,179 @@
+@import '../styles/constants';
+
+
+.assamble-team {
+  @include flex(column, center, center);
+  box-sizing: border-box;
+  padding: $main-padding-lg;
+
+  .project-form {
+    @include flex(column, center, center);
+  }
+
+  h2 {
+    font-family: $secondary-font;
+  }
+
+  .project {
+    padding: 75px;
+    @include flex(row, flex-start, flex-start);
+    box-sizing: border-box;
+    background-color: $accent-assamble;
+    color: $black;
+    width: 100%;
+    margin: 50px;
+    color: $gray-dark;
+
+    .title {
+      width: 50%;
+    }
+    .info {
+      width: 50%;
+
+      p {
+        margin-bottom: 50px;
+      }
+
+      label {
+        font-weight: 700;
+        font-size: 12px;
+      }
+
+      input, textarea {
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid $gray-dark;
+        transition: $transition;
+        padding: 5px;
+        color: $gray-dark;
+        width: 75%;
+        font-size: 20px;
+        margin-bottom: 25px;
+
+        &:focus {
+          outline: none;
+          border-bottom: 1px solid $black;
+        }
+      }
+
+      textarea {
+        font-size: 16px;
+        height: 100px;
+        resize: vertical;
+      }
+    }
+
+    h2 {
+      color: $black;
+    }
+  }
+
+  .roster {
+    padding: 50px 0;
+
+    .roster-header {
+      width: 100%;
+      @include flex(row, flex-start, flex-start);
+      padding: 75px;
+      box-sizing: border-box;
+    }
+
+    .title {
+      width: 50%;
+    }
+    .info {
+      width: 50%;
+    }
+  }
+
+  .roster-description {
+    color: $gray-dark;
+  }
+
+  .select-team {
+    text-align: center;
+    color: $gray-dark;
+    font-size: 20px;
+    margin: 50px;
+  }
+
+  .roster-cards {
+    padding-top: 100px;
+    @include flex(row wrap, center, center);
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .assamble-button {
+    border: none;
+    border-radius: 3px;
+    height: 50px;
+    width: 250px;
+    font-size: 20px;
+    background-color: $purple;
+    color: $white;
+    font-weight: $bold;
+    transition: $transition;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      background-color: $purple-light;
+    }
+
+    &.disabled {
+      background-color: $gray-disabled;
+      &:hover {
+        background-color: $gray-disabled;
+      }
+    }
+  }
+
+  .form-invalid-msg {
+    font-size: 12px;
+    text-align: center;
+    color: $gray-light;
+  }
+}
+
+@media only screen and (max-width: $md) {
+
+  .assamble-team {
+    padding: $main-padding-md;
+
+    .project {
+      margin: 25px;
+      padding: 30px;
+      @include flex(column, flex-start, flex-start);
+
+      .title {
+        width: 100%;
+      }
+      .info {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $sm) {
+  .assamble-team {
+    padding: $main-padding-sm;
+
+    .roster {
+      .roster-header {
+        @include flex(column, flex-start, flex-start);
+
+        .title {
+          width: 100%
+        }
+        .info {
+          width: 100%
+        }
+      }
+    }
+  }
+}
+

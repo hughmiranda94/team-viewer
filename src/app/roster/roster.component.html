@@ -1,0 +1,14 @@
+<div class="roster-container">
+  <app-header
+  [mainTitle] = "'Roster'"
+  [subTitle] = "'Get to know our talent'"
+  [accentColor] = "'#72bbec'"
+  [headerImg] = "'assets/network.svg'"
+  [description] = "rosterDescription"
+  ></app-header>
+  <section class="roster">
+      <div class="roster-cards">
+        <app-member-card *ngFor="let member of roster" [member]="member"></app-member-card>
+      </div>
+  </section>
+</div>

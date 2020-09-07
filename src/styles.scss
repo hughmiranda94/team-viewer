@@ -1,0 +1,29 @@
+@import 'app/styles/constants';
+
+html {
+  font-family: $main-font;
+
+  body {
+    margin: 0;
+
+    &.disable-scroll {
+      overflow: hidden;
+    }
+  }
+
+  button {
+    font-family: $main-font;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  textarea {
+    font-family: $main-font;
+  }
+
+  .bold {
+    font-weight: $bold;
+  }
+}
